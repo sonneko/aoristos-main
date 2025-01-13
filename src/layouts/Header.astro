@@ -1,0 +1,89 @@
+---
+const links = [
+    { url: "/", text: "Home" },
+    { url: "/about", text: "About" },
+    { url: "/contact", text: "Contact" },
+];
+---
+
+<header>
+    <nav class="container">
+        <div class="title-container">
+            <h2 class="title">Aoristos</h2>
+        </div>
+        <div id="links">
+            {
+                links.map((item) => (
+                    <div class="links-container">
+                        <a class="link" href={item.url}>
+                            {item.text}
+                        </a>
+                    </div>
+                ))
+            }
+        </div>
+        <div id="hamburger"></div>
+    </nav>
+</header>
+
+<style>
+    header {
+        margin: 0;
+        padding: 0;
+        width: 100%;
+    }
+    .container {
+        position: absolute;
+        top: 0;
+        left: 0;
+        background-color: aliceblue;
+        height: 2.5rem;
+        width: 100%;
+        border: red 1px solid;
+    }
+    .title-container {
+        position: absolute;
+        left: 0;
+        font-size: 3vh;
+    }
+    .title{
+        font-size: 1.5rem;
+        margin-left: 1rem;
+    }
+    #links {
+        position: absolute;
+        left: 50vw;
+    }
+    .links-container {
+        margin: 0 1rem;
+        float: left;
+        text-align: center;
+    }
+    .link {
+        margin: 0 1rem;
+        font-size: 2vw;
+        text-decoration: underline;
+    }
+</style>
+
+<script>
+    import getEnv from "../libs/getEnv";
+
+    // デバイス取得
+    const env = getEnv();
+
+    // 要素取得
+    const hamburgerEle = document.getElementById("hamburger");
+    const linksEle = document.getElementById("links");
+
+    //表示切り替え
+    if (hamburgerEle && linksEle) {
+        if (env === "phone") {
+            hamburgerEle.style.display = "block";
+            linksEle.style.display = "none";
+        } else {
+            hamburgerEle.style.display = "none";
+            linksEle.style.display = "block";
+        }
+    }
+</script>
