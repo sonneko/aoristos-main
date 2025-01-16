@@ -1,10 +1,39 @@
 ---
-import Layout from '../layouts/Layout.astro';
-
-// Welcome to Astro! Wondering what to do next? Check out the Astro documentation at https://docs.astro.build
-// Don't want to use any of this? Delete everything in this file, the `assets`, `components`, and `layouts` directories, and start fresh.
+import Layout from "../layouts/Layout.astro";
+import AoristosIcon from "../components/AoristosIcon.astro";
 ---
 
-<Layout title="" description="" ogpImage=''>
-    <h1>Hello World</h1>
+<Layout title="" description="" ogpImage="">
+    <div class="title-box">
+        <h1>Team Aoristos</h1>
+        <div class="icon-box">
+            <AoristosIcon width={500} height={150} />
+        </div>
+    </div>
+    <div class="scroll-bar" />
 </Layout>
+
+<style lang="scss">
+    h1 {
+        font-family: alegreya-sans-font, sans-serif;
+        text-align: left;
+        color: $fontC;
+        font-size: 6rem;
+    }
+    .icon-box {
+        text-align: right;
+        transform: translateY(-5rem);
+    }
+    .title-box {
+        margin: 0 8rem;
+        @include media(ph) {
+            margin: 0 2px;
+        }
+        @include media(pc) {
+            margin: 0 10rem;
+        }
+    }
+    .scroll-bar{
+
+    }
+</style>

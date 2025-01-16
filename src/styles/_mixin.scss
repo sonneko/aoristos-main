@@ -1,1 +1,40 @@
-$themaColor: rgb(128, 212, 118);
+/* このscssはグローバルスコープ */
+
+/*
+ * fontの読み込み
+*/
+@font-face {
+    font-family: "alegreya-sans-font";
+    src: url("/font/AlegreyaSansSC.ttf") format("truetype");
+}
+
+/*
+ * 色関係のscss変数宣言
+*/
+$themaC: rgb(128, 212, 118);
+$themaThinC: rgb(158, 242, 148);
+$grayC: #ccc;
+$fontC: #333;
+
+/*
+ * .className{
+ *     @include media(ph) {
+ *         // css for phone
+ *     }
+ *     @include media(pc) {
+ * 	       // css for pc
+ *     }
+ * }
+ * 	↑のように書けるようにするための設定
+*/
+$breakpoints: (
+    "ph": "screen and (min-width: 378px)",
+    "pc": "screen and (min-width: 1024px)",
+    ) !default;
+
+@mixin media($breakpoint) {
+    @media #{map-get($breakpoints, $breakpoint)} {
+        @content;
+    }
+}
+

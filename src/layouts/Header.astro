@@ -2,88 +2,88 @@
 const links = [
     { url: "/", text: "Home" },
     { url: "/about", text: "About" },
+    { url: "/blog", text: "Blog" },
+    { url: "/group", text: "Groups" },
     { url: "/contact", text: "Contact" },
 ];
 ---
 
 <header>
-    <nav class="container">
-        <div class="title-container">
-            <h2 class="title">Aoristos</h2>
-        </div>
-        <div id="links">
-            {
-                links.map((item) => (
-                    <div class="links-container">
-                        <a class="link" href={item.url}>
-                            {item.text}
-                        </a>
-                    </div>
-                ))
-            }
-        </div>
-        <div id="hamburger"></div>
-    </nav>
+    <div class="nav-wrapper">
+        <nav class="nav">
+            <ul class="nav__menu">
+                {
+                    links.map((item) => {
+                        return (
+                            <li class="nav__item">
+                                <a class="nav__link" href={item.url}>
+                                    {item.text}
+                                </a>
+                            </li>
+                        );
+                    })
+                }
+            </ul>
+            <div class="bottom-line"></div>
+        </nav>
+    </div>
+    <div class="spacer" />
 </header>
 
-<style>
+<style lang="scss">
     header {
         margin: 0;
         padding: 0;
         width: 100%;
     }
-    .container {
-        position: absolute;
+
+    .nav-wrapper {
+        position: fixed;
         top: 0;
         left: 0;
-        background-color: aliceblue;
-        height: 2.5rem;
         width: 100%;
-        border: red 1px solid;
+        z-index: 1000;
+        background-color: white;
+        box-shadow: 0 2px 5px $grayC;
     }
-    .title-container {
-        position: absolute;
-        left: 0;
-        font-size: 3vh;
+
+    .nav__menu {
+        padding-left: 0;
+        list-style: none;
+        display: flex;
+        justify-content: space-between;
     }
-    .title{
-        font-size: 1.5rem;
-        margin-left: 1rem;
-    }
-    #links {
-        position: absolute;
-        left: 50vw;
-    }
-    .links-container {
-        margin: 0 1rem;
-        float: left;
+
+    .nav__item {
+        flex: 1;
         text-align: center;
+        border-left: 0.2px solid $grayC;
+        border-right: 0.2px solid $grayC;
+        &:hover {
+            background-color: $grayC;
+        }
     }
-    .link {
-        margin: 0 1rem;
-        font-size: 2vw;
-        text-decoration: underline;
+
+    .nav__link {
+        display: block;
+        text-decoration: none;
+        color: $fontC;
+        text-align: center;
+        padding: 8px;
+        &:hover {
+            text-decoration: underline;
+        }
+    }
+
+    .bottom-line {
+        background-color: $themaC;
+        height: 1.5px;
+        width: 100%;
+    }
+    
+    .spacer{
+        margin-top: 50px;
     }
 </style>
 
-<script>
-    import getEnv from "../libs/getEnv";
-
-    // デバイス取得
-    const env = getEnv();
-
-    // 要素取得
-    const hamburgerEle = document.getElementById("hamburger");
-    const linksEle = document.getElementById("links");
-
-    //表示切り替え
-    if (hamburgerEle && linksEle) {
-        if (env === "phone") {
-            hamburgerEle.style.display = "block";
-            linksEle.style.display = "none";
-        } else {
-            hamburgerEle.style.display = "none";
-            linksEle.style.display = "block";
-        }
-    }
-</script>
+<script></script>

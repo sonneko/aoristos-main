@@ -1,1 +1,93 @@
-<h3>This is footer</h3>
+---
+import Copyright from "../components/Copyright.astro";
+import ShortIntroduce from "../components/ShortIntroduce.astro";
+---
+
+<footer>
+    <div class="top-box">
+        <div class="left-box">
+            <div class="title-box">
+                <h5 class="title-h">Team Aoristos</h5>
+                <div class="title-p">
+                    <ShortIntroduce />
+                </div>
+            </div>
+        </div>
+        <div class="right-box">
+            <i>
+                X：<span
+                    ><a href="https://x.com/Team_Aoristos">@Team_Aoristos</a><br
+                    /></span
+                >
+            </i>
+            <i>
+                Instagram：<span
+                    ><a href="https://www.instagram.com/team_aoristos/"
+                        >@team_aoristos</a
+                    ></span
+                >
+            </i>
+        </div>
+        <div class="spacer"></div>
+    </div>
+
+    <div class="bottom-box">
+        <Copyright />
+    </div>
+</footer>
+
+<style lang="scss">
+    .title-h {
+        font-family: alegreya-sans-font, sans-serif;
+        font-size: 10vw;
+        text-wrap: nowrap;
+        color: $fontC;
+        @include media(ph) {
+            font-size: 13vw;
+        }
+        @include media(pc) {
+            font-size: 6vw;
+        }
+    }
+
+    .title-box {
+        margin-left: 5vw;
+        @include media(ph) {
+            .title-p {
+                margin-left: 0vw;
+            }
+            .title-h {
+                margin-bottom: 0rem;
+            }
+        }
+        @include media(pc) {
+            .title-p {
+                margin-left: 1vw;
+            }
+            .title-h {
+                margin-bottom: 1rem;
+            }
+        }
+    }
+    .top-box {
+        background-color: $themaThinC;
+    }
+    .bottom-box {
+        background-color: $themaC;
+    }
+    .left-box {
+        width: 70%;
+    }
+    .right-box {
+        float: right;
+        width: 20%;
+        transform: translateY(-100%) translateX(-40%);
+        text-align: left;
+        a {
+            text-decoration: underline;
+        }
+    }
+    .spacer {
+        height: 2.5rem;
+    }
+</style>

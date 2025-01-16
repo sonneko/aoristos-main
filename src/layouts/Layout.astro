@@ -55,7 +55,6 @@ const props = Astro.props;
 	</head>
 	<body>
 		<Header />
-		<div class="spacer" />
 		<main>
 			<slot />
 		</main>
@@ -71,12 +70,11 @@ const props = Astro.props;
 		height: 100%;
 		font-family: "Helvetica Neue", Arial, "Hiragino Kaku Gothic ProN",
 			"Hiragino Sans", Meiryo, sans-serif;
-			float: none;
+		float: none;
 	}
 </style>
 
-<style is:global>
-	.spacer{
-		border: blue 1px solid;
-	}
-</style>
+<script>
+	import { getDarkOrLightMode } from "../libs/dark-right-mode";
+	const mode = getDarkOrLightMode();
+</script>
