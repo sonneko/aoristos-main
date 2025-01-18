@@ -1,39 +1,98 @@
 ---
 import Layout from "../layouts/Layout.astro";
 import AoristosIcon from "../components/AoristosIcon.astro";
+import ContentBox from "../components/ContentBox.astro";
+import ScrollBar from "../components/ScrollBar.astro";
+import Canvas from "../components/Canvas.astro";
+import ImageBelt from "../components/ImageBelt.astro";
+
+import memberData from "../assets/member.json";
 ---
 
 <Layout title="" description="" ogpImage="">
     <div class="title-box">
-        <h1>Team Aoristos</h1>
+        <h1>
+            <span>
+                <div>Team<div><div class="title-h-hider"></div></div></div>
+            </span>
+            <span>
+                <div>Aoristos<div><div class="title-h-hider"></div></div></div>
+            </span>
+        </h1>
+        <ScrollBar />
         <div class="icon-box">
             <AoristosIcon width={500} height={150} />
         </div>
     </div>
-    <div class="scroll-bar" />
+    <div class="contents-box">
+        <Canvas />
+        <ContentBox
+            subTitle="What's Aoristos?"
+            description=`
+        Team Aoristosでは学習指導要領の勉強はもちろん、<br
+        />高校では習わないような専門的な知識も<br
+        />自主的に学んでいます。<br />純粋な知的好奇心に従おう！`
+        >
+            <div slot="title">
+                「Team Aoristos」は生徒による<br />自学自習団体です。
+            </div>
+        </ContentBox>
+        <ImageBelt />
+        <ContentBox
+            subTitle="What we're studying?"
+            description=`
+            Team Aoristosは一つの分野について勉強するのではありません。<br />
+            多分野に分かれるがゆえに、分野によって分けられた「班」が存在します。
+            `
+        >
+            <div slot="title">
+                例えば...<br />数学・物理・化学・情報・言語など！
+            </div>
+        </ContentBox>
+        <ImageBelt />
+        <ContentBox
+            subTitle="Why Aoristos?"
+            description=`
+            共に勉強する仲間を増やすためにTeam Aoristosを立ち上げました。<br />様々な分野の"専門家"が参加し今は${memberData.members.length}人が参加しています。`
+        >
+            <div slot="title">
+                ニッチな分野を<br />一緒に勉強する <i>[仲間 ] </i>が欲しい！
+            </div>
+        </ContentBox>
+        <ImageBelt />
+        <ContentBox
+            subTitle="How to join?"
+            description=`
+            ご参加は、<a href="https://x.com/Team_Aoristos">公式XのDM</a>から気軽にご相談ください。`
+        >
+            <div slot="title">
+                参加条件は、<br /> 現役の高校生であること。<br /> 勉強する意欲があること。
+            </div>
+        </ContentBox>
+        <ImageBelt />
+
+        <ContentBox
+            subTitle="Our Achievements"
+            description=`
+            これまでに制作した資料やプロジェクト・大会の結果などを公開中！詳細は以下のリンクをご覧ください。
+            <a href="/achievements">実績を見る</a>
+            `
+        >
+            <div slot="title">実績・成果物のご紹介</div>
+        </ContentBox>
+        <ImageBelt />
+        <ContentBox
+            subTitle="News & Updates"
+            description=`
+        新しいイベントやプロジェクト情報をお届けします！<br />
+        最新情報は<a href="https://x.com/Team_Aoristos">公式SNS</a>をチェック！
+        `
+        >
+            <div slot="title">最新情報のお知らせ</div>
+        </ContentBox>
+    </div>
 </Layout>
 
 <style lang="scss">
-    h1 {
-        font-family: alegreya-sans-font, sans-serif;
-        text-align: left;
-        color: $fontC;
-        font-size: 6rem;
-    }
-    .icon-box {
-        text-align: right;
-        transform: translateY(-5rem);
-    }
-    .title-box {
-        margin: 0 8rem;
-        @include media(ph) {
-            margin: 0 2px;
-        }
-        @include media(pc) {
-            margin: 0 10rem;
-        }
-    }
-    .scroll-bar{
-
-    }
+    @import "../styles/pages/index.scss";
 </style>

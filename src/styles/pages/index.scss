@@ -1,0 +1,59 @@
+@keyframes title-anime {
+    from {
+        transform: translateY(4rem);
+    }
+    to {
+        transform: translateY(0);
+    }
+}
+.icon-box {
+    text-align: right;
+    @include media(ph) {
+        transforom: none;
+    }
+    @include media(pc) {
+        transform: translateY(-5rem);
+    }
+}
+.title-box {
+    margin: 0 8rem;
+    @include media(ph) {
+        margin: 0 2px;
+    }
+    @include media(pc) {
+        margin: 0 10rem;
+    }
+    padding-top: 10rem;
+    h1 {
+        font-family: alegreya-sans-font, sans-serif;
+        text-align: left;
+        color: $fontC;
+        font-size: 6rem;
+        span div {
+            display: inline-block;
+            animation: title-anime 1s ease;
+        }
+        span:first-of-type div {
+            animation-delay: 0.3s;
+        }
+        span:last-of-type div {
+            animation-delay: 0.2s;
+        }
+        @media screen and (max-width: 585px) {
+            text-align: center;
+        }
+    }
+    @media screen and (max-width: 585px) {
+        padding-top: 5rem;
+    }
+}
+.contents-box {
+    position: relative;
+    margin: 0 8rem;
+    @include media(ph) {
+        margin: 0 10px;
+    }
+    @include media(pc) {
+        margin: 0 6rem;
+    }
+}

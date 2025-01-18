@@ -37,6 +37,9 @@ import ShortIntroduce from "../components/ShortIntroduce.astro";
 </footer>
 
 <style lang="scss">
+    footer{
+        box-shadow: inset 0px 0px 10px 0px rgba(0, 0, 0, 0.6);
+    }
     .title-h {
         font-family: alegreya-sans-font, sans-serif;
         font-size: 10vw;
@@ -85,6 +88,10 @@ import ShortIntroduce from "../components/ShortIntroduce.astro";
         text-align: left;
         a {
             text-decoration: underline;
+        }
+        @media screen and (max-width: 585px) {
+            float: none;
+            transform: translateX(50vw) translateY(1rem);
         }
     }
     .spacer {

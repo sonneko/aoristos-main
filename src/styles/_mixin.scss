@@ -14,6 +14,7 @@
 $themaC: rgb(128, 212, 118);
 $themaThinC: rgb(158, 242, 148);
 $grayC: #ccc;
+$darkC: #888;
 $fontC: #333;
 
 /*
@@ -28,7 +29,7 @@ $fontC: #333;
  * 	↑のように書けるようにするための設定
 */
 $breakpoints: (
-    "ph": "screen and (min-width: 378px)",
+    "ph": "screen and (min-width: 1px)",
     "pc": "screen and (min-width: 1024px)",
     ) !default;
 
@@ -38,3 +39,7 @@ $breakpoints: (
     }
 }
 
+a {
+    text-decoration: underline;
+    color: #55d;
+}

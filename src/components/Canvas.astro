@@ -1,0 +1,26 @@
+<div id="canvas"></div>
+
+<style lang="scss">
+    #canvas {
+        position: fixed;
+        opacity: 0;
+        display: inline-block;
+        left: 2px;
+        top: 0;
+        height: 100vh;
+        z-index: -100;
+        @include media(ph) {
+            left: 2px;
+            width: calc(100vw - 4px);
+        }
+        @include media(pc) {
+            left: 6rem;
+            width: calc(100vw - 12rem);
+        }
+    }
+</style>
+
+<script>
+    import draw3d from "../libs/draw3d";
+    draw3d();
+</script>

@@ -1,0 +1,48 @@
+<div class="scroll-bar"></div>
+<div class="scroll-bar-text">scroll</div>
+
+<style lang="scss">
+    @keyframes fade-out {
+        from {
+            opacity: 0;
+            transform: translateY(5rem);
+        }
+        10% {
+            opacity: 0.7;
+        }
+        to {
+            opacity: 0;
+            transform: translateY(0);
+        }
+    }
+    .scroll-bar {
+        position: absolute;
+        z-index: 10;
+        width: 1.3px;
+        height: 10vh;
+        background-color: $darkC;
+        left: 50vw;
+        top: 33rem;
+        animation: fade-out 3s ease infinite;
+        @include media(ph) {
+            top: 37rem;
+        }
+        @include media(pc) {
+            top: 33rem;
+        }
+    }
+    .scroll-bar-text {
+        position: absolute;
+        z-index: 10;
+        left: calc(50vw + 0.4em);
+        top: calc(33rem + 10vh - 2em);
+        color: $darkC;
+        animation: fade-out 3s ease-out infinite;
+        @include media(ph) {
+            top: calc(37rem + 10vh - 2em);
+        }
+        @include media(pc) {
+            top: calc(33rem + 10vh - 2em);
+        }
+    }
+</style>
